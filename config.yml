@@ -1,0 +1,49 @@
+# CSO Sentinel Configuration
+# List of Irish CSO PxStat Table IDs to track and generate schemas for
+# Reference: https://data.cso.ie/
+
+tables:
+  - id: "HPM05"
+    name: "House Prices in County by Year"
+    category: "Housing"
+    frequency: "Annual"
+    description: "Average house prices in each county in Ireland"
+
+  - id: "ECS04"
+    name: "Employment Levels by Sector"
+    category: "Employment"
+    frequency: "Quarterly"
+    description: "Persons (000) employed in each economic sector"
+
+  - id: "PEA01"
+    name: "Population by Age Group and Sex"
+    category: "Population"
+    frequency: "Annual"
+    description: "Estimated population by age group and sex"
+
+  - id: "ICS03"
+    name: "Industrial Production Index"
+    category: "Industrial"
+    frequency: "Monthly"
+    description: "Index of industrial production (2015=100)"
+
+  - id: "RPI06"
+    name: "Retail Price Index - Food"
+    category: "Prices"
+    frequency: "Monthly"
+    description: "Retail Price Index for selected food items"
+
+# Sync configuration
+sync:
+  # Maximum number of observations to retrieve per table (to avoid rate limiting)
+  max_observations: 10
+  
+  # Retry strategy for failed requests
+  max_retries: 3
+  retry_delay_seconds: 5
+  
+  # Timeout for API requests (in seconds)
+  timeout_seconds: 30
+  
+  # Enable verbose logging
+  verbose: false
